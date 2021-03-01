@@ -1,4 +1,4 @@
-# sass-style-sheets
+
 <br />
 <h1>Sass Style Sheets</h1>
 <br />
