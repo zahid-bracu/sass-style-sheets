@@ -1,0 +1,56 @@
+@import "./_resets.scss"; //import root files
+@import './variables'; //import variabl files
+
+body{
+    background : $primary-color; // color variable value from file
+    color: $text-color; // text color variable value from file
+
+    // map get from variable
+    font-weight: map-get($font-weight, regular);
+}
+
+
+// a function to set font weight
+// a argument is passed to set the font weight
+@function weight($font-weight-value){
+
+    // returning the font weight value and it's variable
+    @return map-get($font-weight, $font-weight-value )
+};
+
+
+// mixin function :  a function of css with design to inclue
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction
+}
+
+.main{
+    // @include included the css design here
+    @include flexCenter(column);
+    width: 80%;
+    margin: 0 auto;
+
+    //  # + & indication
+    #{&}_para{
+        // normal function call
+        font-weight: weight(regular);
+        &:hover{
+            transform: scale(1.1);
+            color: $accent-color;
+        }
+    }
+
+    // & + classname indication
+    &_para_two{
+         
+        font-weight: map-get($font-weight, bold );
+
+        // normal & +hover indication
+        &:hover{
+            color: yellow;
+        }
+    }
+}
