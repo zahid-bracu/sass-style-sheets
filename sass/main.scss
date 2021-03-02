@@ -27,9 +27,24 @@ body{
     flex-direction: $direction
 }
 
+
+@mixin theme($light-theme:true){
+    @if $light-theme {
+        background: lighten($primary-color,100%);
+        color:darken($text-color,100%)
+    }
+}
+
+@mixin  mobile {
+    @media (max-width:800px){
+        @content;
+    }
+}
+
+
 .main{
     // @include included the css design here
-    @include flexCenter(column);
+    @include flexCenter(row);
     width: 80%;
     margin: 0 auto;
 
@@ -53,4 +68,13 @@ body{
             color: yellow;
         }
     }
+
+    @include mobile{
+        flex-direction: column;
+    }
+}
+
+
+.light{
+    @include theme($light-theme: true);
 }
