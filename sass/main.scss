@@ -28,6 +28,7 @@ body{
 }
 
 
+// a mixin function to change the background color
 @mixin theme($light-theme:true){
     @if $light-theme {
         background: lighten($primary-color,100%);
@@ -35,6 +36,8 @@ body{
     }
 }
 
+
+// a mixin function to design responsive model
 @mixin  mobile {
     @media (max-width:800px){
         @content;
@@ -45,7 +48,7 @@ body{
 .main{
     // @include included the css design here
     @include flexCenter(row);
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
 
     //  # + & indication
@@ -61,12 +64,19 @@ body{
     // & + classname indication
     &_para_two{
          
+       
         font-weight: map-get($font-weight, bold );
 
         // normal & +hover indication
         &:hover{
-            color: yellow;
+            color: rgb(87, 87, 16);
         }
+    }
+
+
+    &_para_three{
+        // extends another design using extends
+        @extend .main_para_two
     }
 
     @include mobile{

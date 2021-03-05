@@ -23,7 +23,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 80%;
+  width: 40%;
   margin: 0 auto;
 }
 
@@ -37,12 +37,12 @@ body {
   color: #ff652f;
 }
 
-.main_para_two {
+.main_para_two, .main_para_three {
   font-weight: 700;
 }
 
-.main_para_two:hover {
-  color: yellow;
+.main_para_two:hover, .main_para_three:hover {
+  color: #575710;
 }
 
 @media (max-width: 800px) {
