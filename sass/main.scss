@@ -10,12 +10,14 @@ body{
 }
 
 
-// a function to set font weight
-// a argument is passed to set the font weight
+ 
+// Variable value as object with multiple property
 @function weight($font-weight-value){
 
     // returning the font weight value and it's variable
-    @return map-get($font-weight, $font-weight-value )
+    @return map-get($font-weight, $font-weight-value );
+
+    //******* font-weight: weight(regular) *********//
 };
 
 
