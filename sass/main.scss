@@ -17,6 +17,7 @@ body{
     // returning the font weight value and it's variable
     @return map-get($font-weight, $font-weight-value );
 
+    // use below
     //******* font-weight: weight(regular) *********//
 };
 
@@ -27,6 +28,17 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: $direction
+    //  @include flexCenter(row);
+}
+
+
+
+
+// a mixin function to design responsive model
+@mixin  mobile {
+    @media (max-width:800px){
+        @content;
+    }
 }
 
 
@@ -36,15 +48,9 @@ body{
         background: lighten($primary-color,100%);
         color:darken($text-color,100%)
     }
+    // @include theme($light-theme: true);
 }
 
-
-// a mixin function to design responsive model
-@mixin  mobile {
-    @media (max-width:800px){
-        @content;
-    }
-}
 
 
 .main{
