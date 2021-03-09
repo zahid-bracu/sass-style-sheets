@@ -39,6 +39,12 @@ body{
     @media (max-width:800px){
         @content;
     }
+
+    /**
+    @include mobile{
+        flex-direction: column;
+    }
+    **/
 }
 
 
