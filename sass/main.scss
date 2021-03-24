@@ -1,28 +1,22 @@
-@import "./_resets.scss"; //import root files
-@import './variables'; //import variabl files
+@import "./_resets.scss";  
+@import './variables';  
 
 body{
-    background : $primary-color; // color variable value from file
-    color: $text-color; // text color variable value from file
-
-    // map get from variable
+    background : $primary-color;  
+    color: $text-color;  
     font-weight: map-get($font-weight, regular);
 }
 
 
  
-// Variable value as object with multiple property
+ 
 @function weight($font-weight-value){
-
-    // returning the font weight value and it's variable
     @return map-get($font-weight, $font-weight-value );
-
-    // use below
     //******* font-weight: weight(regular) *********//
 };
 
 
-// mixin function :  a function of css with design to inclue
+
 @mixin flexCenter($direction) {
     display: flex;
     justify-content: center;
@@ -34,12 +28,10 @@ body{
 
 
 
-// a mixin function to design responsive model
 @mixin  mobile {
     @media (max-width:800px){
         @content;
     }
-
     /**
     @include mobile{
         flex-direction: column;
@@ -48,7 +40,7 @@ body{
 }
 
 
-// a mixin function to change the background color
+
 @mixin theme($light-theme:true){
     @if $light-theme {
         background: lighten($primary-color,100%);
@@ -60,14 +52,11 @@ body{
 
 
 .main{
-    // @include included the css design here
+  
     @include flexCenter(row);
     width: 40%;
     margin: 0 auto;
-
-    //  # + & indication
     #{&}_para{
-        // normal function call
         font-weight: weight(regular);
         &:hover{
             transform: scale(1.1);
@@ -75,21 +64,15 @@ body{
         }
     }
 
-    // & + classname indication
+ 
     &_para_two{
-         
-       
         font-weight: map-get($font-weight, bold );
-
-        // normal & +hover indication
         &:hover{
             color: rgb(87, 87, 16);
         }
     }
 
-
-    &_para_three{
-        // extends another design using extends
+    &_para_three{   
         @extend .main_para_two
     }
 
@@ -97,7 +80,6 @@ body{
         flex-direction: column;
     }
 }
-
 
 .light{
     @include theme($light-theme: true);
